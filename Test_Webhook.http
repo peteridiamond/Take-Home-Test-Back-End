@@ -1,0 +1,37 @@
+### Test callback
+POST http://localhost:8080/callback
+Content-Type: application/json
+
+{
+  "instant": "2022-05-26T16:38:48.678846Z"
+}
+
+### Register a callback
+POST http://localhost:8080/webhook
+Content-Type: application/json
+
+{
+  "callback": {
+    "url": "http://localhost:8080/callback",
+    "period": 5000
+  }
+}
+
+### Update a pre-existing callback registration
+PUT http://localhost:8080/webhook
+Content-Type: application/json
+
+{
+  "callback": {
+    "url": "http://localhost:8080/callback",
+    "period": 6000
+  }
+}
+
+### UnRegister a pre-existing callback registration
+DELETE http://localhost:8080/webhook
+Content-Type: application/json
+
+{
+    "url": "http://localhost:8080/callback"
+}
